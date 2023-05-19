@@ -12,14 +12,16 @@
 </script>
 
 <template>
-  <NavbarComponentVue/>
-  <div class="flex items-center justify-center mt-32 pb-20 border-b mb-8">
-    <the-form class="w-2/4" />
+  <div class="dark:bg-gray-900">
+    <NavbarComponentVue/>
+    <div class="flex items-center justify-center pt-32 pb-20 border-b mb-8 dark:bg-gray-900 dark:border-gray-600">
+      <the-form class="w-2/4" />
+    </div>
+    <div class="flex items-center justify-center dark:bg-gray-900">
+      <TheCardVue class="w-5/6"/>
+    </div>
+    <RouterView />
   </div>
-  <div class="flex items-center justify-center ">
-    <TheCardVue class="w-5/6"/>
-  </div>
-  <RouterView />
 </template>
 
 
