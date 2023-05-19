@@ -1,7 +1,12 @@
-<script setup></script>
+<script setup>
+import { useDark, useToggle } from '@vueuse/core'
+
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+</script>
 
 <template>
-  <nav
+  <nav 
     class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
   >
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -10,7 +15,7 @@
           >Pump</span
         >
       </RouterLink>
-      <div class="flex md:order-2">
+      <div class="flex gap-2 md:order-2">
         <button
           type="button"
           class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -21,6 +26,14 @@
           >
             2
           </span>
+        </button>
+        <button
+         @click="toggleDark()"
+          type="button"
+          class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+        <span v-if="isDark" class="material-symbols-outlined text-md">light_mode</span>
+        <span v-if="!isDark" class="material-symbols-outlined">dark_mode</span>
         </button>
 
         <button
